@@ -1,19 +1,17 @@
-import _ from 'lodash';
-import './style.css';
-import Logo from './webpack-logo.svg';
+// import printMe from './print.js';
 
-function component() {
-  var element = document.createElement('div');
+(function() {
+  class Player {
+    constructor() {
+      this.name = 'foooooobear';
+    }
 
-  element.innerHTML = _.join(['hi', 'poopy'], ' ');
+    sayName() {
+      console.log('my name is:  ', this.name);
+    }
+  }
 
-  element.classList.add('hello');
+  let player = new Player();
 
-  var webpackLogo = new Image();
-  webpackLogo.src = Logo;
-  element.appendChild(webpackLogo);
-
-  return element;
-}
-
-document.body.appendChild(component());
+  player.sayName();
+})();
