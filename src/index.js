@@ -1,29 +1,32 @@
-// import printMe from './print.js';
+import * as PIXI from 'pixi.js';
+import circleImage from '../images/circle.png';
+import { attractorCircle } from './AttractorCircle';
+import { moverCircle } from './MoverCircle';
 
-(function() {
-  class Player {
-    constructor(name) {
-      this.name = name;
-      this.width = 20;
-      this.height = 20;
-    }
+const app = new PIXI.Application(window.innerWidth, window.innerHeight, {
+  backgroundColor: 0x323232,
+  antialias: true
+});
 
-    sayName() {
-      console.log('my name is:  ', this.name);
-    }
-  }
+document.body.appendChild(app.view);
 
-  // set up canvas
-  const c = document.getElementById('myCanvas');
-  const ctx = c.getContext('2d');
-  c.width = window.innerWidth;
-  c.Height = window.innerHeight;
 
-  ctx.moveTo(0, 0);
-  ctx.lineTo(200, 100);
-  ctx.stroke();
 
-  let player = new Player('poophead');
+attractorCircle.moverCircleRef = moverCircle;
 
-  player.sayName();
-})();
+app.stage.addChild(attractorCircle, moverCircle);
+
+
+
+
+
+
+
+
+// animate
+app.ticker.add(function(delta) {
+  let force = attractorCircle.attract();
+  moverCircle.applyForce(force, delta);
+
+});
+

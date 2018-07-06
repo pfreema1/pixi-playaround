@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4"
+    "babel-loader": "^7.1.4",
+    "pixi.js": "^4.8.1",
+    "url-loader": "^1.0.1"
   }
 }
