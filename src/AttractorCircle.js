@@ -43,7 +43,6 @@ attractorCircle.attract = function() {
     };
 
     let strength = ((G * attractorCircle.mass * this.moverCircleRef.mass) / (d * d)) / 3;
-    console.log('force:  ', force);
 
     // put magnitude and direction together - force multiplied by strength
     force.x = force.x * strength;

@@ -12,7 +12,7 @@ moverCircle.mass = 1;
 
 
 moverCircle.velocity = {
-  x: .1,
+  x: 25,
   y: .1
 };
 
